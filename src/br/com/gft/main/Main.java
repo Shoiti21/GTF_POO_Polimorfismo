@@ -18,16 +18,16 @@ public class Main {
 
 		Scanner sc=new Scanner(System.in);
 		
-		/*
-		 * carro: 100 litros de combustível
-		 * caminhão: 150 litros de combustível
-		 * avião: 600 litros de combustível
+		/* 
+		 carro: A cada acelerada é 20 Km/h e tem 100 litros de combustível
+		 caminhão: A cada acelerada é 25 Km/h e tem 150 litros de combustível
+		 avião: A cada acelerada é 60 Km/h e tem 600 litros de combustível
 		 */
 		Carro meucarro=new Carro("Hyundai","HB20","33333","Preto",20,true,100,0,40000.0); 
 		Caminhao meucaminhao=new Caminhao("Scania", "R580","25252","Branco",25,true,150,0,100000.0);
-		Aviao meuaviao=new Aviao("AIRBUS", "A330 ","55555","Azul",30,true,600,0,300000.0);
+		Aviao meuaviao=new Aviao("AIRBUS", "A330 ","55555","Azul",60,true,600,0,300000.0);
 		
-		for(int i = 0; i <= 10; ++i) {
+		while(true) {
 			System.out.println("CARRO");
 			System.out.println("Marca: "+meucarro.getMarca());
 			System.out.println("Modelo: "+meucarro.getModelo());
@@ -59,31 +59,41 @@ public class Main {
 			System.out.println("Preço: R$"+meuaviao.getPreco());
 			System.out.println("_______________________________________________________________");
 			
-			System.out.println("Deseja acelerar o carro?(resposta boolean)");
-			isAcelerar=sc.nextBoolean();
-			if(isAcelerar==true) {
-				meucarro.acelerar();
-			}
-			System.out.println("Deseja acelerar o caminhão?(resposta boolean)");
-			isAcelerar=sc.nextBoolean();
-			if(isAcelerar==true) {
-				meucaminhao.acelerar();
-			}
-			System.out.println("Deseja acelerar o avião?(resposta boolean)");
-			isAcelerar=sc.nextBoolean();
-			if(isAcelerar==true) {
-				meuaviao.acelerar();
+			System.out.println("Qual veículo você deseja acelerar?(Carro, Caminhão ou Avião)");
+			String escolha1=sc.next();
+			switch(escolha1) {
+				case "Carro":
+						meucarro.acelerar();
+					break;
+				case "Caminhão":
+						meucaminhao.acelerar();
+					break;
+				case "Avião":
+						meuaviao.acelerar();
+					break;
 			}
 			
-			System.out.println("Quanto deseja abastecer no carro?(resposta boolean)");
-			qtdAbastecerCarro=sc.nextInt();
-			meucarro.abastecer(qtdAbastecerCarro);
-			System.out.println("Quanto deseja abastecer no caminhão?(resposta boolean)");
-			qtdAbastecerCaminhao=sc.nextFloat();
-			meucaminhao.abastecer(qtdAbastecerCaminhao);
-			System.out.println("Quanto deseja abastecer no avião?(resposta boolean)");
-			qtdAbastecerAviao=sc.next();
-			meuaviao.abastecer(qtdAbastecerAviao);
+			System.out.println("Quem você deseja abastecer?(Carro, Caminhão, Avião ou nenhum)");
+			String escolha2=sc.next();
+			switch(escolha2) {
+				case "Carro":
+					System.out.println("Quanto deseja abastecer no carro?(resposta boolean)");
+					qtdAbastecerCarro=sc.nextInt();
+					meucarro.abastecer(qtdAbastecerCarro);
+					break;
+				case "Caminhão":
+					System.out.println("Quanto deseja abastecer no caminhão?(resposta boolean)");
+					qtdAbastecerCaminhao=sc.nextFloat();
+					meucaminhao.abastecer(qtdAbastecerCaminhao);
+					break;
+				case "Avião":
+					System.out.println("Quanto deseja abastecer no avião?(resposta boolean)");
+					qtdAbastecerAviao=sc.next();
+					meuaviao.abastecer(qtdAbastecerAviao);
+					break;
+				case "nenhum":
+					break;
+			}
 		}
 	}
 }
