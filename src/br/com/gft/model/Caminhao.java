@@ -6,8 +6,8 @@ public class Caminhao extends Veiculo{
 	}
 	public void abastecer(float qtd) {
 		super.abastecer((int)qtd);
-		if(super.LitrosCombustivel>600) {
-			super.LitrosCombustivel=100;
+		if(super.LitrosCombustivel>150) {
+			super.LitrosCombustivel=150;
 		}
 	}
 	public void acelerar() {

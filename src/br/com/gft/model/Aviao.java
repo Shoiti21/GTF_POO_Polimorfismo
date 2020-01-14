@@ -6,8 +6,8 @@ public class Aviao extends Veiculo{
 	}
 	public void abastecer(String qtd) {
 		super.abastecer(Integer.parseInt(qtd));
-		if(super.LitrosCombustivel>100) {
-			super.LitrosCombustivel=100;
+		if(super.LitrosCombustivel>600) {
+			super.LitrosCombustivel=600;
 		}
 	}
 	public void acelerar() {
